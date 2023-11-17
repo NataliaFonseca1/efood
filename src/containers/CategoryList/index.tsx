@@ -14,12 +14,13 @@ const CategoryList = ({ categories }: Props) => {
         {categories.map((CategoriesProducts) => (
           <CategoryProduct
             key={CategoriesProducts.id}
+            id={CategoriesProducts.id}
             image={CategoriesProducts.capa}
-            tipo={CategoriesProducts.tipo}
-            destacado={CategoriesProducts.destacado}
+            tipo={CategoriesProducts.tipo || ''}
+            destacado={CategoriesProducts.destacado ? 'true' : 'false'}
             title={CategoriesProducts.titulo}
             description={CategoriesProducts.descricao}
-            classification={CategoriesProducts.avaliacao}
+            classification={CategoriesProducts.avaliacao || ''}
           />
         ))}
       </List>

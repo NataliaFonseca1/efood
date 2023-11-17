@@ -11,13 +11,12 @@ import {
 
 import Button from '../../components/Button'
 import estrela from '../../assets/images/estrela.svg'
-import Tag from '../../components/Tag'
 import { TagContainer } from '../../components/Tag/styles'
 
 type Props = {
   image: string
   title: string
-  info: string
+  tipo: string
   description: string
   destacado: string
   classification: string
