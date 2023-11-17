@@ -1,12 +1,4 @@
-import {
-  Container,
-  ImgContainer,
-  LinkImgs,
-  LinkItem,
-  Links,
-  Lista,
-  Title
-} from './styles'
+import { Container, Item, LinkItem, Lista, Title } from './styles'
 import instagram from '../../assets/images/instagram.svg'
 import facebook from '../../assets/images/facebook.svg'
 import twiter from '../../assets/images/twitter.svg'
@@ -20,21 +12,21 @@ const Footer = () => {
           <img src={logo} />
         </LinkItem>
         <Lista>
-          <Links>
-            <LinkImgs to="/">
-              <ImgContainer src={instagram} />
-            </LinkImgs>
-          </Links>
-          <Links>
-            <LinkImgs to="/">
-              <ImgContainer src={facebook} />
-            </LinkImgs>
-          </Links>
-          <Links>
-            <LinkImgs to="/">
-              <ImgContainer src={twiter} />
-            </LinkImgs>
-          </Links>
+          <li>
+            <Item href="">
+              <img src={instagram} />
+            </Item>
+          </li>
+          <li>
+            <Item href="">
+              <img src={facebook} />
+            </Item>
+          </li>
+          <li>
+            <Item href="">
+              <img src={twiter} />
+            </Item>
+          </li>
         </Lista>
 
         <Title>

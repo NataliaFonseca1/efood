@@ -31,8 +31,8 @@ export const Lista = styled.ul`
 export const LinkItem = styled(Link)`
   padding-bottom: 65px;
   padding-top: 63px;
-  margin-left: 49px;
-  margin-right: 49px;
+  margin-left: 170px;
+  margin-right: 45px;
   color: ${cores.rosa};
   text-decoration: none;
 `
@@ -41,6 +41,7 @@ export const ImagemBanner = styled.div`
   display: block;
   justify-content: space-between;
 
+  width: 100%;
   height: 280px;
   background-color: rgba(0, 0, 0, 0.5);
 `

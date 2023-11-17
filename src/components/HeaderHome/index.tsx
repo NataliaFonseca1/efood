@@ -9,7 +9,6 @@ const HeaderHome = () => {
         <Link to="/">
           <img src={logo} />
         </Link>
-
         <Tittle>
           Viva experiências gastronômicas <br />
           no conforto da sua casa

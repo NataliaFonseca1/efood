@@ -15,7 +15,7 @@ export const Imagem = styled.div`
   font-weight: bold;
   img {
     padding-top: 40px;
-    margin-left: 600px;
+    margin-left: 700px;
   }
 `
 export const Tittle = styled.h1`

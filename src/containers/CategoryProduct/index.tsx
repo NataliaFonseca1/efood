@@ -3,34 +3,48 @@ import {
   Classification,
   Container,
   Description,
+  DestaqueContainer,
   Imagem,
   Infos,
   Title
 } from './styles'
-import Tag from '../../components/Tag'
+
 import Button from '../../components/Button'
 import estrela from '../../assets/images/estrela.svg'
+import Tag from '../../components/Tag'
+import { TagContainer } from '../../components/Tag/styles'
 
 type Props = {
   image: string
   title: string
-  info: string[]
+  info: string
   description: string
+  destacado: string
   classification: string
+  id: number
 }
 const CategoryProduct = ({
   image,
-  info,
+  tipo,
   title,
+  destacado,
   description,
-  classification
+  classification,
+  id
 }: Props) => (
   <Card>
     <Imagem style={{ backgroundImage: `url(${image})` }}>
       <Infos>
-        {info.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
+        <DestaqueContainer>
+          <>
+            {destacado && (
+              <TagContainer>
+                <span>Em destaque</span>
+              </TagContainer>
+            )}
+          </>
+        </DestaqueContainer>
+        <TagContainer>{tipo}</TagContainer>
       </Infos>
     </Imagem>
     <Container>
@@ -43,7 +57,7 @@ const CategoryProduct = ({
 
     <Description>{description}</Description>
 
-    <Button type="link" to="/profile" title="saiba mais">
+    <Button type="link" to={`/profile/${id}`} title="saiba mais">
       saiba mais
     </Button>
   </Card>

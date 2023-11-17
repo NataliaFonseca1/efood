@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import { Link } from 'react-router-dom'
+import { Props } from './index'
 
 export const ButtonContainer = styled.button`
   width: 435px;
@@ -19,13 +20,15 @@ export const ButtonContainer = styled.button`
   border: none;
   cursor: pointer;
 `
-export const ButtonLink = styled(Link)`
-  width: 82px;
+export const ButtonLink = styled(Link)<Props>`
+  width: ${(props) => (props.variant === 'primary' ? '82px' : '435px')};
   height: 20px;
   font-size: 14px;
   margin: 15px;
   padding: 5px;
-  background-color: ${cores.rosa};
-  color: ${cores.branca};
+  background-color: ${(props) =>
+    props.variant === 'primary' ? cores.rosa : cores.branca};
+  color: ${(props) =>
+    props.variant === 'primary' ? cores.branca : cores.rosa};
   text-decoration: none;
 `

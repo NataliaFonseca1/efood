@@ -18,11 +18,11 @@ list-style: none;
 body{
   background-color: ${cores.branca};
   color:${cores.rosa};
-  padding-top: 40px;
+
 
 }
 .container{
-  max-width: 1366px;
+  max-width: 100%;
   width: auto;
   height: auto;
   margin: 0;

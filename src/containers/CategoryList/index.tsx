@@ -1,10 +1,10 @@
-import CategoriesProducts from '../../models/categories'
+import { Product } from '../../pages/Home'
 import CategoryProduct from '../CategoryProduct'
 
 import { List } from './styles'
 
 export type Props = {
-  categories: CategoriesProducts[]
+  categories: Product[]
 }
 
 const CategoryList = ({ categories }: Props) => {
@@ -14,11 +14,12 @@ const CategoryList = ({ categories }: Props) => {
         {categories.map((CategoriesProducts) => (
           <CategoryProduct
             key={CategoriesProducts.id}
-            image={CategoriesProducts.image}
-            info={CategoriesProducts.info}
-            title={CategoriesProducts.title}
-            description={CategoriesProducts.description}
-            classification={CategoriesProducts.classification}
+            image={CategoriesProducts.capa}
+            tipo={CategoriesProducts.tipo}
+            destacado={CategoriesProducts.destacado}
+            title={CategoriesProducts.titulo}
+            description={CategoriesProducts.descricao}
+            classification={CategoriesProducts.avaliacao}
           />
         ))}
       </List>

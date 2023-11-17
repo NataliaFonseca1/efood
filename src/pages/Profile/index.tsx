@@ -1,47 +1,26 @@
-import pizza from '../../assets/images/pizza.png'
+import { useEffect, useState } from 'react'
 import Footer from '../../components/Footer'
 import HeaderProfile from '../../components/HeaderProfile'
-import Products from '../../models/products'
 import ProductList from '../../containers/ProductList'
+import { Product } from '../Home'
+import { useParams } from 'react-router-dom'
 
-const Product: Products[] = [
-  {
-    id: 1,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    image: pizza,
-
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    image: pizza,
-
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  }
-]
-
+export type Props = {
+  id: number
+  products: Product[]
+}
 const Profile = () => {
+  const { id } = useParams()
+  const [productList, setProducts] = useState<Product[]>([])
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
+      .then((res) => res.json())
+      .then((res) => setProducts(res))
+  }, [id])
   return (
     <div className="container">
       <HeaderProfile />
-      <ProductList products={Product} />
+      <ProductList products={productList} />
       <Footer />
     </div>
   )
