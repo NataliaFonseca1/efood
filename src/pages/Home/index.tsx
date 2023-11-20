@@ -8,7 +8,7 @@ export type Product = {
   id: number
   titulo: string
   tipo?: string
-  destacado?: boolean
+  destacado?: string
   avaliacao?: string
   descricao: string
   capa: string
