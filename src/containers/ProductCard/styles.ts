@@ -52,7 +52,7 @@ export const Modal = styled.div`
 export const ModalContainer = styled.div`
   background-color: ${cores.rosa};
   color: ${cores.branca};
-  width: 960px;
+  max-width: 960px;
   height: 334px;
   flex-shrink: 0;
   display: block;

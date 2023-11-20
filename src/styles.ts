@@ -22,7 +22,7 @@ body{
 
 }
 .container{
-  max-width: 1366px;
+  max-width:1920px;
     width: 100%;
     margin: 0 auto;;
 }

@@ -7,5 +7,5 @@ export const List = styled.ul`
   margin-bottom: 120px;
   margin-top: 56px;
   max-width: 1024px;
-  margin-left: 140px;
+  margin: 0 auto;
 `

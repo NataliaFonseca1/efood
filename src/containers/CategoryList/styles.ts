@@ -5,8 +5,8 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 48px;
   column-gap: 80px;
-  margin-top: 80px;
-  margin-bottom: 120px;
+  padding-bottom: 120px;
   max-width: 1024px;
-  margin-left: 140px;
+  padding-top: 80px;
+  margin: 0 auto;
 `
