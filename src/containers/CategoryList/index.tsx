@@ -9,22 +9,20 @@ export type Props = {
 
 const CategoryList = ({ categories }: Props) => {
   return (
-    <div>
-      <List>
-        {categories.map((CategoriesProducts) => (
-          <CategoryProduct
-            key={CategoriesProducts.id}
-            id={CategoriesProducts.id}
-            image={CategoriesProducts.capa}
-            tipo={CategoriesProducts.tipo || ''}
-            destacado={CategoriesProducts.destacado ? 'true' : 'false'}
-            title={CategoriesProducts.titulo}
-            description={CategoriesProducts.descricao}
-            classification={CategoriesProducts.avaliacao || ''}
-          />
-        ))}
-      </List>
-    </div>
+    <List>
+      {categories.map((CategoriesProducts) => (
+        <CategoryProduct
+          key={CategoriesProducts.id}
+          id={CategoriesProducts.id}
+          image={CategoriesProducts.capa}
+          tipo={CategoriesProducts.tipo || ''}
+          destacado={CategoriesProducts.destacado || ''}
+          title={CategoriesProducts.titulo}
+          description={CategoriesProducts.descricao}
+          classification={CategoriesProducts.avaliacao || ''}
+        />
+      ))}
+    </List>
   )
 }
 export default CategoryList

@@ -3,11 +3,10 @@ import styled from 'styled-components'
 export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 5px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-  margin-right: 175px;
-  margin-left: 175px;
+  grid-row-gap: 48px;
+  column-gap: 80px;
+  margin-top: 80px;
   margin-bottom: 120px;
+  max-width: 1024px;
+  margin-left: 140px;
 `

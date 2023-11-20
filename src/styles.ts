@@ -22,9 +22,8 @@ body{
 
 }
 .container{
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  margin: 0;
+  max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;;
 }
 `

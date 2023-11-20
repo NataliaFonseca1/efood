@@ -4,6 +4,7 @@ import HeaderProfile from '../../components/HeaderProfile'
 import ProductList from '../../containers/ProductList'
 import { Product } from '../Home'
 import { useParams } from 'react-router-dom'
+import BannerProfile from '../../components/BannerProfile'
 
 export type Props = {
   id: number
@@ -20,6 +21,7 @@ const Profile = () => {
   return (
     <div className="container">
       <HeaderProfile />
+      <BannerProfile />
       <ProductList products={productList} />
       <Footer />
     </div>

@@ -1,30 +1,26 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  position: relative;
-  display: block;
-  justify-content: space-between;
-`
-export const Imagem = styled.div`
   width: 100%;
   height: 384px;
-  flex-shrink: 0;
   display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-weight: bold;
+`
+export const Imagem = styled.div`
   img {
-    padding-top: 40px;
-    margin-left: 700px;
+    margin: 0 auto;
+    display: block;
+    padding: 64px 0 138.5px;
   }
 `
 export const Tittle = styled.h1`
   color: #e66767;
-  text-align: center;
-  font-family: Roboto;
   font-size: 36px;
+  font-weight: bold;
+  width: 539px;
+  line-height: normal;
   font-style: normal;
   font-weight: 900;
-  line-height: normal;
-  padding-top: 160px;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 40px;
 `

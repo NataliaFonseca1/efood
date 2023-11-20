@@ -1,19 +1,15 @@
 import styled from 'styled-components'
 import { TagContainer } from '../../components/Tag/styles'
 import { ButtonLink } from '../../components/Button/styled'
+import { cores } from '../../styles'
 
 export const Card = styled.div`
-  flex-shrink: 0;
-  border-right: 1px solid #e66767;
-  border-bottom: 1px solid #e66767;
-  border-left: 1px solid #e66767;
-  background: #fff;
-  margin-top: 40px;
-  margin-left: 50px;
-  margin-right: 70px;
-  padding-bottom: 15px;
+  background-color: ${cores.branca};
   width: 472px;
-  max-height: 100%;
+  height: 398px;
+  position: relative;
+  border: 1px solid ${cores.rosa};
+
   ${TagContainer} {
     cursor: pointer;
     margin-top: 15px;
@@ -22,17 +18,21 @@ export const Card = styled.div`
     width: 61px;
   }
   ${ButtonLink} {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
     margin-left: 7px;
   }
 `
 
 export const Imagem = styled.div`
   width: 100%;
-  height: 200px;
-  display: block;
-  background-repeat: no-repeat;
+  height: 217px;
+  object-fit: cover;
   background-size: cover;
-  flex-shrink: 0;
 `
 export const Infos = styled.div`
   color: #ffebd9;
@@ -44,10 +44,12 @@ export const Infos = styled.div`
   font-weight: 700;
   line-height: normal;
   display: flex;
-
-  margin-right: 16px;
+  margin-right: 8px;
   ${TagContainer} {
     margin-right: 8px;
+    height: 26px;
+    width: 61px;
+    padding: 6px 4px;
   }
 `
 export const DestaqueContainer = styled.div`
@@ -67,12 +69,12 @@ export const Title = styled.h3`
   line-height: normal;
   margin-left: 7px;
   margin-top: 8px;
-  margin-bottom: 8px;
 `
 
 export const Classification = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
 
   img {
     margin-right: 8px;
@@ -84,11 +86,10 @@ export const Classification = styled.div`
     color: #e66767;
     text-align: center;
     font-family: Roboto;
-    font-size: 18px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-right: 8px;
   }
 `
 export const Container = styled.div`
@@ -104,7 +105,5 @@ export const Description = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 22px; /* 157.143% */
-  padding-top: 8px;
-  padding-bottom: 10px;
-  margin-left: 7px;
+  margin: 16px 8px;
 `

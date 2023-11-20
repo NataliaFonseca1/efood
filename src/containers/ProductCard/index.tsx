@@ -1,15 +1,6 @@
 import Button from '../../components/Button'
 import close from '../../assets/images/close 1.png'
-import {
-  Card,
-  Description,
-  Header,
-  Imagem,
-  ModalContainer,
-  ModalText,
-  Overlay,
-  Title
-} from './styles'
+import { Card, Modal, ModalContainer, Overlay } from './styles'
 import { useState } from 'react'
 type Props = {
   image: string
@@ -21,12 +12,18 @@ const ProductCard = ({ image, title, description }: Props) => {
   const [isModalVisible, setModalVisible] = useState(false)
   const openModal = () => setModalVisible(true)
   const closeModal = () => setModalVisible(false)
+  const getDescription = (description: string) => {
+    if (description.length > 300) {
+      return description.slice(0, 300) + '...'
+    }
+    return description
+  }
   return (
     <div className="container">
       <Card>
-        <Imagem style={{ backgroundImage: `url(${image})` }}></Imagem>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <img style={{ backgroundImage: `url(${image})` }}></img>
+        <h3>{title}</h3>
+        <p>{getDescription(description)}</p>
         <Button
           variant="secondary"
           type="button"
@@ -38,23 +35,22 @@ const ProductCard = ({ image, title, description }: Props) => {
       </Card>
 
       {isModalVisible && (
-        <div className="container">
-          <Overlay>
-            <ModalContainer>
+        <Modal>
+          <ModalContainer className="container">
+            <header>
+              <img src={close} alt="" onClick={closeModal} />
+            </header>
+            <main>
+              <img src={image} alt="" />
               <div>
-                <img src={image} alt="" />
-              </div>
-              <ModalText>
-                <Header>
-                  <img src={close} alt="" onClick={closeModal} />
-                </Header>
-                <h1>{title}</h1>
-                <h2>
+                <h3>{title}</h3>
+                <p>
                   {description}
                   <br />
                   <br />
-                  Serve: de 2 a 3 pessoas.
-                </h2>
+                  <span>Serve: de 2 a 3 pessoas.</span>
+                </p>
+
                 <Button
                   variant="secondary"
                   type="button"
@@ -62,10 +58,11 @@ const ProductCard = ({ image, title, description }: Props) => {
                 >
                   Adicionar ao carrinho
                 </Button>
-              </ModalText>
-            </ModalContainer>
-          </Overlay>
-        </div>
+              </div>
+            </main>
+          </ModalContainer>
+          <Overlay onClick={closeModal} />
+        </Modal>
       )}
     </div>
   )

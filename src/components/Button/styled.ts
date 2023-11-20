@@ -9,7 +9,6 @@ export const ButtonContainer = styled.button`
   flex-shrink: 0;
   background-color: ${cores.branca};
   color: ${cores.rosa};
-  margin: 8px;
   color: #e66767;
   text-align: center;
   font-family: Roboto;
@@ -23,9 +22,6 @@ export const ButtonContainer = styled.button`
 export const ButtonLink = styled(Link)<Props>`
   width: ${(props) => (props.variant === 'primary' ? '82px' : '435px')};
   height: 20px;
-  font-size: 14px;
-  margin: 15px;
-  padding: 5px;
   background-color: ${(props) =>
     props.variant === 'primary' ? cores.rosa : cores.branca};
   color: ${(props) =>

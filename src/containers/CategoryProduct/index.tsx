@@ -30,36 +30,44 @@ const CategoryProduct = ({
   description,
   classification,
   id
-}: Props) => (
-  <Card>
-    <Imagem style={{ backgroundImage: `url(${image})` }}>
-      <Infos>
-        <DestaqueContainer>
-          <>
-            {destacado && (
-              <TagContainer>
-                <span>Em destaque</span>
-              </TagContainer>
-            )}
-          </>
-        </DestaqueContainer>
-        <TagContainer>{tipo}</TagContainer>
-      </Infos>
-    </Imagem>
-    <Container>
-      <Title>{title}</Title>
-      <Classification>
-        {classification}
-        <img src={estrela} />
-      </Classification>
-    </Container>
+}: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 250) {
+      return description.slice(0, 250) + '...'
+    }
+    return description
+  }
+  return (
+    <Card>
+      <Imagem style={{ backgroundImage: `url(${image})` }}>
+        <Infos>
+          <DestaqueContainer>
+            <>
+              {destacado && (
+                <TagContainer>
+                  <span>Destaque da semana</span>
+                </TagContainer>
+              )}
+            </>
+          </DestaqueContainer>
+          <TagContainer>{tipo}</TagContainer>
+        </Infos>
+      </Imagem>
+      <Container>
+        <Title>{title}</Title>
+        <Classification>
+          {classification}
+          <img src={estrela} />
+        </Classification>
+      </Container>
 
-    <Description>{description}</Description>
+      <Description>{getDescription(description)}</Description>
 
-    <Button type="link" to={`/profile/${id}`} title="saiba mais">
-      saiba mais
-    </Button>
-  </Card>
-)
+      <Button type="link" to={`/profile/${id}`} title="saiba mais">
+        saiba mais
+      </Button>
+    </Card>
+  )
+}
 
 export default CategoryProduct

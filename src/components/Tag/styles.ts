@@ -6,5 +6,7 @@ export const TagContainer = styled.div<Props>`
   background-color: ${cores.rosa};
   color: ${cores.branca};
   height: 26px;
+  width: 61px;
   font-size: 12px;
+  padding: 4px 6px;
 `
