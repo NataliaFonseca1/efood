@@ -75,21 +75,17 @@ export const Classification = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-
+  color: #e66767;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
   img {
     margin-right: 8px;
     width: 21px;
     height: 21px;
-  }
-
-  h4 {
-    color: #e66767;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
   }
 `
 export const Container = styled.div`

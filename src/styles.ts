@@ -22,8 +22,8 @@ body{
 
 }
 .container{
-  max-width:1920px;
+
     width: 100%;
-    margin: 0 auto;;
+    margin: 0 auto;
 }
 `
