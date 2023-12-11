@@ -3,6 +3,7 @@ import HeaderHome from '../../components/HeaderHome'
 
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
+import { MenuItem } from '../../containers/ProductList'
 
 export type Product = {
   id: number
@@ -12,16 +13,7 @@ export type Product = {
   avaliacao?: string
   descricao: string
   capa: string
-  cardapio: [
-    {
-      foto?: string
-      preco?: number
-      id?: number
-      nome?: string
-      descricao?: string
-      porcao?: string
-    }
-  ]
+  cardapio: MenuItem[]
 }
 
 const Home = () => {

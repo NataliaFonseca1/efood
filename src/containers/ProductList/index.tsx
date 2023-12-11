@@ -1,10 +1,18 @@
-import { Product } from '../../pages/Home'
+import { useEffect } from 'react'
 import { List } from './styles'
 import ProductCard from '../ProductCard'
-import { useEffect } from 'react'
+
+export type MenuItem = {
+  foto?: string
+  preco?: number
+  id?: number
+  nome?: string
+  descricao?: string
+  porcao?: string
+}
 
 export type Props = {
-  products: Product[]
+  products: MenuItem[]
 }
 
 const ProductList = ({ products }: Props) => {
@@ -15,15 +23,15 @@ const ProductList = ({ products }: Props) => {
   return (
     <div>
       <List>
-        {products?.map((product) => (
+        {products?.map((menuItem) => (
           <ProductCard
-            key={product.id}
-            foto={product.foto}
-            nome={product.nome}
-            descricao={product.descricao}
-            id={product.id}
-            preco={product.preco}
-            porcao={product.porcao}
+            key={menuItem.id}
+            foto={menuItem.foto}
+            nome={menuItem.nome}
+            descricao={menuItem.descricao}
+            id={menuItem.id}
+            preco={menuItem.preco?.toString()}
+            porcao={menuItem.porcao}
           />
         ))}
       </List>
