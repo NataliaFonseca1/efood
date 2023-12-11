@@ -2,7 +2,7 @@ import Button from '../../components/Button'
 import close from '../../assets/images/close 1.png'
 import { Card, Modal, ModalContainer, Overlay } from './styles'
 import { useState } from 'react'
-type Props = {
+type ProductProps = {
   foto?: string
   preco?: string
   descricao?: string
@@ -10,7 +10,13 @@ type Props = {
   porcao?: string
   id?: number
 }
-const ProductCard = ({ foto, preco, porcao, descricao, nome }: Props) => {
+const ProductCard = ({
+  foto,
+  preco,
+  porcao,
+  descricao,
+  nome
+}: ProductProps) => {
   console.log('ProductCard Props:', { foto, preco, porcao, descricao, nome })
   const [isModalVisible, setModalVisible] = useState(false)
   const openModal = () => setModalVisible(true)

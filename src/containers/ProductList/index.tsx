@@ -9,26 +9,23 @@ export type Props = {
 
 const ProductList = ({ products }: Props) => {
   useEffect(() => {
-    console.log('ProductList Component - products:', products);
-  }, [products]);
+    console.log('ProductList Component - products:', products)
+  }, [products])
 
   return (
     <div>
       <List>
-        {products?.map(
-          (restaurant) =>
-            restaurant.cardapio?.map((product) => (
-              <ProductCard
-                key={product.id}
-                foto={product.foto}
-                nome={product.nome}
-                descricao={product.descricao}
-                id={product.id}
-                preco={product.preco}
-                porcao={product.porcao}
-              />
-            ))
-        )}
+        {products?.map((product) => (
+          <ProductCard
+            key={product.id}
+            foto={product.foto}
+            nome={product.nome}
+            descricao={product.descricao}
+            id={product.id}
+            preco={product.preco}
+            porcao={product.porcao}
+          />
+        ))}
       </List>
     </div>
   )
