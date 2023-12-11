@@ -12,17 +12,26 @@ export type Product = {
   avaliacao?: string
   descricao: string
   capa: string
-  preco?: string
-  porcao?: string
+  cardapio: [
+    {
+      foto?: string
+      preco?: number
+      id?: number
+      nome?: string
+      descricao?: string
+      porcao?: string
+    }
+  ]
 }
 
 const Home = () => {
   const [categoriesList, setCategories] = useState<Product[]>([])
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
       .then((res) => res.json())
       .then((res) => setCategories(res))
-  }, [])
+    console.log(categoriesList)
+  }, [categoriesList])
   return (
     <div className="container">
       <HeaderHome />

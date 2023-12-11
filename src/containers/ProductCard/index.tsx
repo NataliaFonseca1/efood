@@ -3,12 +3,15 @@ import close from '../../assets/images/close 1.png'
 import { Card, Modal, ModalContainer, Overlay } from './styles'
 import { useState } from 'react'
 type Props = {
-  image: string
-  title: string
-  description: string
-  id: number
+  foto?: string
+  preco?: string
+  descricao?: string
+  nome?: string
+  porcao?: string
+  id?: number
 }
-const ProductCard = ({ image, title, description }: Props) => {
+const ProductCard = ({ foto, preco, porcao, descricao, nome }: Props) => {
+  console.log('ProductCard Props:', { foto, preco, porcao, descricao, nome })
   const [isModalVisible, setModalVisible] = useState(false)
   const openModal = () => setModalVisible(true)
   const closeModal = () => setModalVisible(false)
@@ -21,9 +24,9 @@ const ProductCard = ({ image, title, description }: Props) => {
   return (
     <div className="container">
       <Card>
-        <img style={{ backgroundImage: `url(${image})` }}></img>
-        <h3>{title}</h3>
-        <p>{getDescription(description)}</p>
+        <img style={{ backgroundImage: `url(${foto})` }}></img>
+        <h3>{nome}</h3>
+        <p>{getDescription(descricao || '')}</p>
         <Button
           variant="secondary"
           type="button"
@@ -41,14 +44,14 @@ const ProductCard = ({ image, title, description }: Props) => {
               <img src={close} alt="" onClick={closeModal} />
             </header>
             <main>
-              <img src={image} alt="" />
+              <img src={foto} alt="" />
               <div>
-                <h3>{title}</h3>
+                <h3>{nome}</h3>
                 <p>
-                  {description}
+                  {descricao}
                   <br />
                   <br />
-                  <span>Serve: de 2 a 3 pessoas.</span>
+                  <span>{porcao || ''}</span>
                 </p>
 
                 <Button
@@ -56,7 +59,7 @@ const ProductCard = ({ image, title, description }: Props) => {
                   type="button"
                   title="Adicionar ao carrinho"
                 >
-                  Adicionar ao carrinho
+                  {`Adicionar ao carrinho ${preco || ''}`}
                 </Button>
               </div>
             </main>
