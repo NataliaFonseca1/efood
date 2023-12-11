@@ -50,7 +50,6 @@ export const Modal = styled.div`
   display: flex;
 `
 export const ModalContainer = styled.div`
-  background-color: ${cores.rosa};
   color: ${cores.branca};
   max-width: 960px;
   height: 334px;
@@ -58,7 +57,7 @@ export const ModalContainer = styled.div`
   display: block;
   z-index: 1;
   position: relative;
-
+  background-color: #e66767;
   header {
     display: flex;
     justify-content: flex-end;

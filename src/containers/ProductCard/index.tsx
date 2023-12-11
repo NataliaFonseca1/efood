@@ -65,7 +65,7 @@ const ProductCard = ({
                   type="button"
                   title="Adicionar ao carrinho"
                 >
-                  {`Adicionar ao carrinho ${preco || ''}`}
+                  {`Adicionar ao carrinho-R$ ${preco || ''}0`}
                 </Button>
               </div>
             </main>
