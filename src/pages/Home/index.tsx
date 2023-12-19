@@ -1,10 +1,6 @@
 import CategoryList from '../../containers/CategoryList'
 import HeaderHome from '../../components/HeaderHome'
 
-import Footer from '../../components/Footer'
-import { useEffect, useState } from 'react'
-import { MenuItem } from '../../containers/ProductList'
-
 export type Product = {
   id: number
   titulo: string
@@ -13,23 +9,31 @@ export type Product = {
   avaliacao?: string
   descricao: string
   capa: string
-  cardapio: MenuItem[]
+  cardapio: Item[]
 }
+export type Item = {
+  id: number
+  foto?: string
+  nome?: string
+  descricao?: string
+  preco?: number
+  porcao?: string
+}
+import { useGetRestaurantsQuery } from '../../services/api'
 
 const Home = () => {
-  const [categoriesList, setCategories] = useState<Product[]>([])
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
-      .then((res) => res.json())
-      .then((res) => setCategories(res))
-    console.log(categoriesList)
-  }, [categoriesList])
+  const { data: categoriesList } = useGetRestaurantsQuery()
+  if (!categoriesList) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
-    <div className="container">
+    <>
       <HeaderHome />
-      <CategoryList categories={categoriesList} />
-      <Footer />
-    </div>
+      <div className="container">
+        <CategoryList categories={categoriesList} />
+      </div>
+    </>
   )
 }
 export default Home

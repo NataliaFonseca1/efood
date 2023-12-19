@@ -1,7 +1,7 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Container = styled.div`
-  width: 100%;
   height: 384px;
   display: block;
 `
@@ -23,4 +23,9 @@ export const Tittle = styled.h1`
   text-align: center;
   margin: 0 auto;
   padding-bottom: 40px;
+  @media (max-width: ${breakpoints.mobile}) and (max-width: 1020px) {
+    width: 100%;
+    gap: 2px;
+    margin: 0 auto;
+  }
 `

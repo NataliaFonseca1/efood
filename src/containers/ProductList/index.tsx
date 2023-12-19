@@ -1,38 +1,18 @@
-import { useEffect } from 'react'
 import { List } from './styles'
 import ProductCard from '../ProductCard'
-
-export type MenuItem = {
-  foto?: string
-  preco?: number
-  id?: number
-  nome?: string
-  descricao?: string
-  porcao?: string
-}
+import { Item } from '../../pages/Home'
 
 export type Props = {
-  products: MenuItem[]
+  itens: Item[]
 }
 
-const ProductList = ({ products }: Props) => {
-  useEffect(() => {
-    console.log('ProductList Component - products:', products)
-  }, [products])
-
+const ProductList = ({ itens }: Props) => {
+  console.log('produtos', itens)
   return (
     <div>
       <List>
-        {products?.map((menuItem) => (
-          <ProductCard
-            key={menuItem.id}
-            foto={menuItem.foto}
-            nome={menuItem.nome}
-            descricao={menuItem.descricao}
-            id={menuItem.id}
-            preco={menuItem.preco?.toString()}
-            porcao={menuItem.porcao}
-          />
+        {itens.map((item) => (
+          <ProductCard key={item.id} item={item} />
         ))}
       </List>
     </div>

@@ -2,22 +2,15 @@ import Button from '../../components/Button'
 import close from '../../assets/images/close 1.png'
 import { Card, Modal, ModalContainer, Overlay } from './styles'
 import { useState } from 'react'
-type ProductProps = {
-  foto?: string
-  preco?: string
-  descricao?: string
-  nome?: string
-  porcao?: string
-  id?: number
+import { Item } from '../../pages/Home'
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+import { priceFormatter } from '../../utils'
+
+type Props = {
+  item: Item
 }
-const ProductCard = ({
-  foto,
-  preco,
-  porcao,
-  descricao,
-  nome
-}: ProductProps) => {
-  console.log('ProductCard Props:', { foto, preco, porcao, descricao, nome })
+const ProductCard = ({ item }: Props) => {
   const [isModalVisible, setModalVisible] = useState(false)
   const openModal = () => setModalVisible(true)
   const closeModal = () => setModalVisible(false)
@@ -27,12 +20,19 @@ const ProductCard = ({
     }
     return description
   }
+  console.log('teste', item)
+  const dispatch = useDispatch()
+  const AddCart = () => {
+    dispatch(add(item))
+    dispatch(open())
+    closeModal()
+  }
   return (
     <div className="container">
       <Card>
-        <img style={{ backgroundImage: `url(${foto})` }}></img>
-        <h3>{nome}</h3>
-        <p>{getDescription(descricao || '')}</p>
+        <img style={{ backgroundImage: `url(${item.foto})` }}></img>
+        <h3>{item.nome}</h3>
+        <p>{getDescription(item.descricao || '')}</p>
         <Button
           variant="secondary"
           type="button"
@@ -45,27 +45,27 @@ const ProductCard = ({
 
       {isModalVisible && (
         <Modal>
-          <ModalContainer className="container">
+          <ModalContainer>
             <header>
               <img src={close} alt="" onClick={closeModal} />
             </header>
             <main>
-              <img src={foto} alt="" />
+              <img src={item.foto} alt="" />
               <div>
-                <h3>{nome}</h3>
+                <h3>{item.nome}</h3>
                 <p>
-                  {descricao}
+                  {item.descricao}
                   <br />
                   <br />
-                  <span>{porcao || ''}</span>
+                  <span>{item.porcao || ''}</span>
                 </p>
-
                 <Button
                   variant="secondary"
                   type="button"
                   title="Adicionar ao carrinho"
+                  onClick={AddCart}
                 >
-                  {`Adicionar ao carrinho-R$ ${preco || ''}0`}
+                  {`Adicionar ao carrinho-${priceFormatter(item.preco)}`}
                 </Button>
               </div>
             </main>

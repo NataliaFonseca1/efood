@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -9,4 +10,16 @@ export const List = styled.ul`
   max-width: 1024px;
   padding-top: 80px;
   margin: 0 auto;
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {
+    padding: 0 auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `

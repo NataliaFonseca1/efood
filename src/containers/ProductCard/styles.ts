@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { ButtonContainer } from '../../components/Button/styled'
 
 export const Card = styled.div`
@@ -51,13 +51,25 @@ export const Modal = styled.div`
 `
 export const ModalContainer = styled.div`
   color: ${cores.branca};
-  max-width: 960px;
+  max-width: 1024px;
   height: 334px;
   flex-shrink: 0;
   display: block;
   z-index: 1;
   position: relative;
   background-color: #e66767;
+  @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {
+    max-width: 92%;
+    height: 350px;
+    padding: 0 auto;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    display: block;
+    height: 85vh;
+    width: 350px;
+    overflow-y: scroll;
+    padding-bottom: 5px;
+  }
   header {
     display: flex;
     justify-content: flex-end;
@@ -73,12 +85,24 @@ export const ModalContainer = styled.div`
   main {
     display: flex;
     padding: 0 32px;
+    @media (max-width: ${breakpoints.mobile}) {
+      display: block;
+      text-align: center;
+    }
   }
   img {
     height: 280px;
     width: 280px;
     object-fit: cover;
     margin-right: 24px;
+    @media (max-width: ${breakpoints.mobile}) {
+      display: flex;
+      height: 200px;
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 5px;
+    }
   }
 
   h3 {

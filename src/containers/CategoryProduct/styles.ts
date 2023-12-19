@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { TagContainer } from '../../components/Tag/styles'
 import { ButtonLink } from '../../components/Button/styled'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${cores.branca};
@@ -25,6 +25,18 @@ export const Card = styled.div`
     cursor: pointer;
     text-decoration: none;
     margin-left: 7px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 auto;
+    margin: 0 auto;
+    width: 100%;
+    height: 104%;
+  }
+  @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {
+    padding: 0 auto;
+    margin: 0 auto;
+    width: 60%;
+    height: 104%;
   }
 `
 
@@ -53,7 +65,6 @@ export const Infos = styled.div`
   }
 `
 export const DestaqueContainer = styled.div`
-  margin-left: 255px;
   ${TagContainer} {
     cursor: pointer;
     margin-top: 16px;

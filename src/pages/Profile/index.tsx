@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react'
-import Footer from '../../components/Footer'
 import HeaderProfile from '../../components/HeaderProfile'
 import ProductList from '../../containers/ProductList'
 import { useParams } from 'react-router-dom'
 import BannerProfile from '../../components/BannerProfile'
-import { Product } from '../Home'
 
-export type Props = {
-  products: Product[]
+import { useGetProductsQuery } from '../../services/api'
+
+type ProductsPrams = {
+  id: string
 }
-
 const Profile = () => {
-  const { id } = useParams()
-  const [productList, setProducts] = useState<Product[]>([])
+  const { id } = useParams() as ProductsPrams
+
+  const { data: productList } = useGetProductsQuery(id)
+
+  if (!productList) {
+    return <h3>Carregando...</h3>
+  }
+
+  /* const [productList, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,14 +43,15 @@ const Profile = () => {
   useEffect(() => {
     console.log(productList)
   }, [productList])
-
+*/
   return (
-    <div className="container">
+    <>
       <HeaderProfile />
       <BannerProfile />
-      <ProductList products={productList} />
-      <Footer />
-    </div>
+      <div className="container">
+        <ProductList itens={productList?.cardapio} />
+      </div>
+    </>
   )
 }
 
