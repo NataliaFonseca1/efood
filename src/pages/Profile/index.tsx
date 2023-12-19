@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import BannerProfile from '../../components/BannerProfile'
 
 import { useGetProductsQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 type ProductsPrams = {
   id: string
@@ -48,7 +49,9 @@ const Profile = () => {
     <>
       <HeaderProfile />
       <BannerProfile />
+
       <div className="container">
+        <Cart />
         <ProductList itens={productList?.cardapio} />
       </div>
     </>

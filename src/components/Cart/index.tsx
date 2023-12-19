@@ -21,7 +21,7 @@ const Cart = () => {
   }
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
-      <S.Overlay onClick={CloseCart} />
+      <S.Overlay onClick={CloseCart} className="container" />
       <S.SiderBar>
         <>
           {items.length > 0 ? (
