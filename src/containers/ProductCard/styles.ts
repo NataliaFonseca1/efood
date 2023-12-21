@@ -29,7 +29,7 @@ export const Card = styled.div`
 
   button {
     width: 100%;
-    background-color: ${cores.branca};
+    background-color: ${cores.brancaEscura};
     border: none;
     color: ${cores.rosa};
     font-weight: bold;
@@ -122,7 +122,7 @@ export const ModalContainer = styled.div`
   }
 
   ${ButtonContainer} {
-    background-color: ${cores.branca};
+    background-color: ${cores.brancaEscura};
     padding: 4px 8px;
     font-size: 14px;
     border: none;

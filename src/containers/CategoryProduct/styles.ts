@@ -111,6 +111,6 @@ export const Description = styled.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 22px;
   margin: 16px 8px;
 `

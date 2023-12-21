@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ButtonContainer } from '../Button/styled'
 import fechar from '../../assets/images/fechar.png'
-import { breakpoints } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -34,6 +34,7 @@ export const SiderBar = styled.aside`
     max-width: 250px;
   }
   ${ButtonContainer} {
+    background-color: ${cores.brancaEscura};
     height: 24px;
     margin-left: 8px;
     margin-right: 8px;

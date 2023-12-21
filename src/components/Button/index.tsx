@@ -8,14 +8,7 @@ export type Props = {
   children: string
   variant?: 'primary' | 'secondary'
 }
-const Button = ({
-  type,
-  title,
-  to,
-  onClick,
-  children,
-  variant = 'primary'
-}: Props) => {
+const Button = ({ type, title, to, onClick, children, variant }: Props) => {
   if (type === 'button') {
     return (
       <ButtonContainer type="button" title={title} onClick={onClick}>

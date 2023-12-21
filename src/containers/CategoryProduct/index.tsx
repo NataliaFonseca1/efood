@@ -63,7 +63,12 @@ const CategoryProduct = ({
 
       <Description>{getDescription(description)}</Description>
 
-      <Button type="link" to={`/profile/${id}`} title="saiba mais">
+      <Button
+        variant="primary"
+        type="link"
+        to={`/profile/${id}`}
+        title="saiba mais"
+      >
         saiba mais
       </Button>
     </Card>

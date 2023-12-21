@@ -7,7 +7,7 @@ export const ButtonContainer = styled.button`
   width: 435px;
   height: 24px;
   flex-shrink: 0;
-  background-color: ${cores.branca};
+  background-color: ${cores.brancaEscura};
   color: ${cores.rosa};
   color: #e66767;
   text-align: center;
@@ -23,8 +23,8 @@ export const ButtonLink = styled(Link)<Props>`
   width: ${(props) => (props.variant === 'primary' ? '82px' : '435px')};
   height: 20px;
   background-color: ${(props) =>
-    props.variant === 'primary' ? cores.rosa : cores.branca};
+    props.variant === 'primary' ? cores.rosa : cores.brancaEscura};
   color: ${(props) =>
-    props.variant === 'primary' ? cores.branca : cores.rosa};
+    props.variant === 'primary' ? cores.branca : cores.brancaEscura};
   text-decoration: none;
 `
