@@ -15,13 +15,15 @@ export const TextContainer = styled.div`
   gap: 300px;
   a {
     cursor: pointer;
+    text-align: center;
+    display: flex;
     @media (max-width: ${breakpoints.mobile}) {
       display: flex;
-      text-align: start;
+      text-align: center;
     }
   }
   @media (max-width: ${breakpoints.mobile}) {
-    width: 10%;
+    width: 8%;
     gap: 45px;
   }
   @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {

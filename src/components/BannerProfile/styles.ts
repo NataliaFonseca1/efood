@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ImagemBanner = styled.div`
   width: 100%;
@@ -33,8 +33,20 @@ export const Title = styled.h1`
   font-size: 32px;
   padding-top: 25px;
   padding-bottom: 156px;
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-left: 2px;
+  }
+  @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {
+    margin-left: 8px;
+  }
 `
 export const Subtitle = styled.h2`
   font-size: 32px;
   font-weight: 900;
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-left: 2px;
+  }
+  @media (min-width: ${breakpoints.tablet}) and (max-width: 1020px) {
+    margin-left: 8px;
+  }
 `

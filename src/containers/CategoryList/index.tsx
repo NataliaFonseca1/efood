@@ -1,4 +1,3 @@
-import { Product } from '../../pages/Home'
 import CategoryProduct from '../CategoryProduct'
 
 import { List } from './styles'

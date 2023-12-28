@@ -49,7 +49,7 @@ export const SiderBar = styled.aside`
     max-width: 344px;
     width: 100%;
     @media (max-width: ${breakpoints.mobile}) {
-      width: 92%;
+      width: 100%;
     }
   }
   .text-cart {
@@ -78,12 +78,14 @@ export const SiderBar = styled.aside`
     font-weight: 400;
     line-height: 22px;
     margin-bottom: 16px;
+    text-align: justify;
   }
 `
 export const Row = styled.div<RowProps>`
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-  column-gap: 30px;
+  column-gap: 34px;
   margin-bottom: ${(props) => props.marginBottom || '8px'};
 `
 export const InputGroup = styled.div<InputGroupProps>`
@@ -92,7 +94,7 @@ export const InputGroup = styled.div<InputGroupProps>`
   max-width: ${(props) => props.maxwidth || 'auto'};
   margin-bottom: ${(props) => props.marginBottom || '8px'};
   justify-content: space-between;
-  display: auto;
+  flex: auto;
   label {
     display: block;
     margin-bottom: 8px;
@@ -114,6 +116,6 @@ export const InputGroup = styled.div<InputGroupProps>`
     }
   }
   @media (max-width: ${breakpoints.mobile}) {
-    width: 92%;
+    width: 100%;
   }
 `

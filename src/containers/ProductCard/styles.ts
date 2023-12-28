@@ -9,7 +9,6 @@ export const Card = styled.div`
   color: ${cores.branca};
   margin-bottom: 32px;
   position: relative;
-
   > img {
     width: 100%;
     height: 167px;

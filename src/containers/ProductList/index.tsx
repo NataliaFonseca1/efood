@@ -1,6 +1,5 @@
 import { List } from './styles'
 import ProductCard from '../ProductCard'
-import { Item } from '../../pages/Home'
 
 export type Props = {
   itens: Item[]

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import BannerProfile from '../../components/BannerProfile'
 
 import { useGetProductsQuery } from '../../services/api'
+import Loader from '../../components/Loaders'
 
 type ProductsPrams = {
   id: string
@@ -14,7 +15,7 @@ const Profile = () => {
   const { data: productList } = useGetProductsQuery(id)
 
   if (!productList) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   /* const [productList, setProducts] = useState<Product[]>([])

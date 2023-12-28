@@ -7,6 +7,7 @@ import { usePurchaseMutation } from '../../services/api'
 import { closeCheckout } from '../../store/reducers/checkout'
 import { open, clear } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
+import InputMask from 'react-input-mask'
 import { RootReducer } from '../../store'
 import { getTotalPrice, priceFormatter } from '../../utils'
 
@@ -173,14 +174,15 @@ const Checkout = () => {
                   <S.Row>
                     <S.InputGroup>
                       <label htmlFor="cep">CEP</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="cep"
                         name="cep"
                         value={form.values.cep}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                         className={checkInputHasError('cep') ? 'error' : ''}
+                        mask="99999-999"
                       />
                     </S.InputGroup>
                     <S.InputGroup>
@@ -247,8 +249,8 @@ const Checkout = () => {
                   <S.Row>
                     <S.InputGroup maxwidth="228px">
                       <label htmlFor="numberCard">Número do Cartão</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="numberCard"
                         name="numberCard"
                         value={form.values.numberCard}
@@ -257,12 +259,13 @@ const Checkout = () => {
                         className={
                           checkInputHasError('numberCard') ? 'error' : ''
                         }
+                        mask="9999 9999 9999 9999"
                       />
                     </S.InputGroup>
                     <S.InputGroup maxwidth="87px">
                       <label htmlFor="cardCode">CVV</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="cardCode"
                         name="cardCode"
                         value={form.values.cardCode}
@@ -271,6 +274,7 @@ const Checkout = () => {
                         className={
                           checkInputHasError('cardCode') ? 'error' : ''
                         }
+                        mask="999"
                       />
                     </S.InputGroup>
                   </S.Row>
@@ -278,8 +282,8 @@ const Checkout = () => {
                   <S.Row marginBottom="24px">
                     <S.InputGroup>
                       <label htmlFor="expiresMonth">Mês do Vencimento</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="expiresMonth"
                         name="expiresMonth"
                         value={form.values.expiresMonth}
@@ -288,12 +292,13 @@ const Checkout = () => {
                         className={
                           checkInputHasError('expiresMonth') ? 'error' : ''
                         }
+                        mask="99"
                       />
                     </S.InputGroup>
                     <S.InputGroup>
                       <label htmlFor="expiresYear">Ano do Vencimento</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="expiresYear"
                         name="expiresYear"
                         value={form.values.expiresYear}
@@ -302,6 +307,7 @@ const Checkout = () => {
                         className={
                           checkInputHasError('expiresYear') ? 'error' : ''
                         }
+                        mask="99"
                       />
                     </S.InputGroup>
                   </S.Row>
@@ -310,7 +316,7 @@ const Checkout = () => {
                     title="clique aqui para finalizar a compra"
                     onClick={confirmPayment}
                   >
-                    Continuar com o pagamento
+                    Finalizar pagamento
                   </Button>
                   <Button
                     type="button"
