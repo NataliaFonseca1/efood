@@ -4,11 +4,16 @@ import { RootReducer } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 import { close, remove } from '../../store/reducers/cart'
 import { priceFormatter } from '../../utils'
+import { openCheckout } from '../../store/reducers/checkout'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
   const CloseCart = () => {
+    dispatch(close())
+  }
+  const openCheck = () => {
+    dispatch(openCheckout())
     dispatch(close())
   }
   const getTotalPrice = () => {
@@ -48,6 +53,7 @@ const Cart = () => {
               <Button
                 type="button"
                 title="clique aqui para continuar com a compra"
+                onClick={openCheck}
               >
                 Continuar com a entrega
               </Button>
