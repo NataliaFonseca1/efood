@@ -132,103 +132,6 @@ const Checkout = () => {
         <S.SiderBar>
           <div>
             <form onSubmit={form.handleSubmit}>
-              {!payment && !isSuccess && (
-                <>
-                  <h1 className="text-cart">Entrega</h1>
-                  <S.InputGroup>
-                    <label htmlFor="receiver">Quem irá receber</label>
-                    <input
-                      type="text"
-                      id="receiver"
-                      name="receiver"
-                      value={form.values.receiver}
-                      onChange={form.handleChange}
-                      onBlur={form.handleBlur}
-                      className={checkInputHasError('receiver') ? 'error' : ''}
-                    />
-                  </S.InputGroup>
-                  <S.InputGroup>
-                    <label htmlFor="address">Endereço</label>
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      value={form.values.address}
-                      onChange={form.handleChange}
-                      onBlur={form.handleBlur}
-                      className={checkInputHasError('address') ? 'error' : ''}
-                    />
-                  </S.InputGroup>
-                  <S.InputGroup>
-                    <label htmlFor="city">Cidade</label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      value={form.values.city}
-                      onChange={form.handleChange}
-                      onBlur={form.handleBlur}
-                      className={checkInputHasError('city') ? 'error' : ''}
-                    />
-                  </S.InputGroup>
-                  <S.Row>
-                    <S.InputGroup>
-                      <label htmlFor="cep">CEP</label>
-                      <InputMask
-                        type="text"
-                        id="cep"
-                        name="cep"
-                        value={form.values.cep}
-                        onChange={form.handleChange}
-                        onBlur={form.handleBlur}
-                        className={checkInputHasError('cep') ? 'error' : ''}
-                        mask="99999-999"
-                      />
-                    </S.InputGroup>
-                    <S.InputGroup>
-                      <label htmlFor="number">Número</label>
-                      <input
-                        type="number"
-                        id="number"
-                        name="number"
-                        value={form.values.number}
-                        onChange={form.handleChange}
-                        onBlur={form.handleBlur}
-                        className={checkInputHasError('number') ? 'error' : ''}
-                      />
-                    </S.InputGroup>
-                  </S.Row>
-                  <S.InputGroup marginBottom="24px">
-                    <label htmlFor="complement">Complemento</label>
-                    <input
-                      type="text"
-                      id="complement"
-                      name="complement"
-                      value={form.values.complement}
-                      onChange={form.handleChange}
-                      onBlur={form.handleBlur}
-                      className={
-                        checkInputHasError('complement') ? 'error' : ''
-                      }
-                    />
-                  </S.InputGroup>
-                  <Button
-                    type="button"
-                    title="clique aqui para continuar com a compra"
-                    onClick={goToPayment}
-                  >
-                    Continuar com o pagamento
-                  </Button>
-                  <Button
-                    type="button"
-                    title="clique aqui para continuar com a compra"
-                    onClick={returnToCart}
-                  >
-                    Voltar para o carrinho
-                  </Button>
-                </>
-              )}
-
               {payment && !isSuccess && (
                 <>
                   <h1 className="text-cart">
@@ -324,6 +227,102 @@ const Checkout = () => {
                     onClick={() => setPayment(false)}
                   >
                     Voltar para a edição de endereço
+                  </Button>
+                </>
+              )}
+              {!payment && !isSuccess && (
+                <>
+                  <h1 className="text-cart">Entrega</h1>
+                  <S.InputGroup>
+                    <label htmlFor="receiver">Quem irá receber</label>
+                    <input
+                      type="text"
+                      id="receiver"
+                      name="receiver"
+                      value={form.values.receiver}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      className={checkInputHasError('receiver') ? 'error' : ''}
+                    />
+                  </S.InputGroup>
+                  <S.InputGroup>
+                    <label htmlFor="address">Endereço</label>
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      value={form.values.address}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      className={checkInputHasError('address') ? 'error' : ''}
+                    />
+                  </S.InputGroup>
+                  <S.InputGroup>
+                    <label htmlFor="city">Cidade</label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      value={form.values.city}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      className={checkInputHasError('city') ? 'error' : ''}
+                    />
+                  </S.InputGroup>
+                  <S.Row>
+                    <S.InputGroup>
+                      <label htmlFor="cep">CEP</label>
+                      <InputMask
+                        type="text"
+                        id="cep"
+                        name="cep"
+                        value={form.values.cep}
+                        onChange={form.handleChange}
+                        onBlur={form.handleBlur}
+                        className={checkInputHasError('cep') ? 'error' : ''}
+                        mask="99999-999"
+                      />
+                    </S.InputGroup>
+                    <S.InputGroup>
+                      <label htmlFor="number">Número</label>
+                      <input
+                        type="number"
+                        id="number"
+                        name="number"
+                        value={form.values.number}
+                        onChange={form.handleChange}
+                        onBlur={form.handleBlur}
+                        className={checkInputHasError('number') ? 'error' : ''}
+                      />
+                    </S.InputGroup>
+                  </S.Row>
+                  <S.InputGroup marginBottom="24px">
+                    <label htmlFor="complement">Complemento</label>
+                    <input
+                      type="text"
+                      id="complement"
+                      name="complement"
+                      value={form.values.complement}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      className={
+                        checkInputHasError('complement') ? 'error' : ''
+                      }
+                    />
+                  </S.InputGroup>
+                  <Button
+                    type="button"
+                    title="clique aqui para continuar com a compra"
+                    onClick={goToPayment}
+                  >
+                    Continuar com o pagamento
+                  </Button>
+                  <Button
+                    type="button"
+                    title="clique aqui para continuar com a compra"
+                    onClick={returnToCart}
+                  >
+                    Voltar para o carrinho
                   </Button>
                 </>
               )}
