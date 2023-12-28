@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import Button from '../../components/Button'
 import * as S from './styles'
+import { useNavigate } from 'react-router-dom'
 import { usePurchaseMutation } from '../../services/api'
 import { closeCheckout } from '../../store/reducers/checkout'
 import { open, clear } from '../../store/reducers/cart'
@@ -15,15 +16,17 @@ const Checkout = () => {
   const dispatch = useDispatch()
   const [payment, setPayment] = useState(false)
   const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  //const [finished, setFinished] = useState(false)
   const { items } = useSelector((state: RootReducer) => state.cart)
   const { isOpen } = useSelector((state: RootReducer) => state.checkout)
   const totalPrice = getTotalPrice(items)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (isSuccess) {
       dispatch(clear())
     }
-  }, [isSuccess, dispatch])
+  }, [dispatch, isSuccess])
 
   const handleCheckout = () => {
     dispatch(closeCheckout())
@@ -124,7 +127,15 @@ const Checkout = () => {
     form.handleSubmit()
     console.log('passou', form, isSuccess, data)
   }
-
+  const finishPayment = () => {
+    dispatch(closeCheckout())
+    dispatch(clear())
+    navigate('/')
+    window.location.reload()
+  }
+  if (items.length === 0 && !isSuccess) {
+    return null
+  }
   return (
     <div>
       <S.CartContainer className={isOpen ? 'is-open' : ''}>
@@ -351,7 +362,7 @@ const Checkout = () => {
                 <Button
                   type="button"
                   title="clique aqui para concluir sua compra"
-                  onClick={() => location.reload()}
+                  onClick={finishPayment}
                 >
                   Concluir
                 </Button>
